@@ -1,0 +1,231 @@
+// src/components/pages/PublicationsPage/PublicationsPage.module.less
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #eff2ff 0%, #d8eefb 100%);
+    padding: 40px;
+}
+
+.card {
+    width: 1000px;
+    max-width: 100%;
+    background: transparent;
+    box-shadow: none;
+}
+
+.viewMode {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.infoBlock {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: white;
+}
+
+.publicationItem, .authorItem {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding-bottom: 15px;
+    &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}
+
+.yearBadge {
+    display: inline-block;
+    font-weight: 700;
+    color: #667eea;
+    min-width: 50px;
+    margin-right: 15px;
+}
+
+.publicationTitle, .authorTitle {
+    font-weight: 600;
+    color: #333;
+}
+
+.workType {
+    color: #666;
+    font-style: italic;
+}
+
+.publicationDetails, .authorDetails {
+    color: #555;
+    font-size: 14px;
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.reviewers {
+    margin-top: 5px;
+    font-size: 13px;
+    color: #666;
+}
+
+.filesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.fileLink {
+    font-size: 13px;
+    text-decoration: none;
+    color: #2c3e50;
+    transition: opacity 0.2s;
+    &:hover {
+        text-decoration: underline;
+        opacity: 0.8;
+    }
+}
+
+.fileInfo {
+    font-size: 12px;
+    color: #7f8c8d;
+    margin-left: 5px;
+}
+
+.siteLink {
+    font-size: 13px;
+    color: #667eea;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.links {
+    margin-top: 8px;
+}
+
+.editRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.editLabel {
+    width: 120px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #333;
+}
+
+.editSubsection {
+    font-weight: 600;
+    font-size: 13px;
+    color: #667eea;
+    margin: 10px 0 5px 0;
+    padding-left: 10px;
+    border-left: 3px solid #667eea;
+}
+
+.editInput, .editInputShort, .editInputMedium {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    font-size: 13px;
+    font-family: inherit;
+    background: white;
+    transition: all 0.2s;
+    &:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+    }
+}
+
+.editInput { flex: 1; min-width: 200px; }
+.editInputShort { width: 80px; }
+.editInputMedium { width: 150px; }
+
+.checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.reviewersEdit {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.reviewerRow {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.smallRemoveButton {
+    background: #fee2e2;
+    border: none;
+    color: #dc2626;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+        background: #fecaca;
+    }
+}
+
+.addSmallButton {
+    background: #e9ecef;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    color: #667eea;
+    width: fit-content;
+    &:hover {
+        background: #dee2e6;
+    }
+}
+
+.emptyMessage {
+    text-align: center;
+    padding: 30px;
+    color: #999;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
+    .editRow {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .editLabel {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    .editInput, .editInputShort, .editInputMedium {
+        width: 100%;
+    }
+    
+    .reviewerRow {
+        flex-direction: column;
+        width: 100%;
+    }
+}

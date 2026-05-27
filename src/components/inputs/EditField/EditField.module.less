@@ -1,0 +1,52 @@
+// EditField.module.less
+.editRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.editLabel {
+    width: 120px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #333;
+}
+
+.editLabelSmall {
+    width: 100px;
+    font-weight: 600;
+    font-size: 12px;
+    color: #555;
+}
+
+.editInput {
+    flex: 1;
+    min-width: 200px;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    font-size: 13px;
+    font-family: inherit;
+    background: white;
+    transition: all 0.2s;
+    &:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+    }
+}
+
+@media (max-width: 768px) {
+    .editRow {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .editLabel, .editLabelSmall {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    .editInput {
+        width: 100%;
+    }
+}

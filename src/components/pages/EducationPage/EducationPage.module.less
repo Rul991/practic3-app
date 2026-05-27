@@ -1,0 +1,139 @@
+// src/components/pages/EducationPage/EducationPage.module.less
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #eff2ff 0%, #d8eefb 100%);
+    padding: 40px;
+}
+
+.card {
+    width: 1000px;
+    max-width: 100%;
+    background: transparent;
+    box-shadow: none;
+}
+
+.viewMode {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.infoBlock {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.educationItem, .qualificationItem, .degreeItem {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding-bottom: 15px;
+    &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}
+
+.yearLabel {
+    display: inline-block;
+    font-weight: 700;
+    color: #667eea;
+    min-width: 100px;
+    margin-right: 20px;
+}
+
+.period, .degreeDate {
+    font-weight: 700;
+    color: #667eea;
+    margin-bottom: 5px;
+}
+
+.details, .degreeDetails {
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 8px;
+}
+
+.fileLink {
+    font-size: 13px;
+    text-decoration: none;
+    color: #2c3e50;
+    transition: opacity 0.2s;
+    &:hover {
+        text-decoration: underline;
+        opacity: 0.8;
+    }
+}
+
+.fileInfo {
+    font-size: 12px;
+    color: #7f8c8d;
+    margin-left: 5px;
+}
+
+.siteLink {
+    font-size: 13px;
+    color: #667eea;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.emptyMessage {
+    text-align: center;
+    padding: 30px;
+    color: #999;
+    font-size: 14px;
+}
+
+.editRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.editLabel {
+    width: 120px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #333;
+}
+
+.editInput, .editInputShort, .editInputSmall, .editInputMedium {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    font-size: 13px;
+    font-family: inherit;
+    background: white;
+    transition: all 0.2s;
+    &:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+    }
+}
+
+.editInput { flex: 1; min-width: 200px; }
+.editInputShort { width: 110px; }
+.editInputSmall { width: 70px; }
+.editInputMedium { width: 130px; }
+
+@media (max-width: 768px) {
+    .container { padding: 20px; }
+    .editRow { flex-direction: column; align-items: flex-start; }
+    .editLabel { width: 100%; margin-bottom: 5px; }
+    .editInput, .editInputShort, .editInputSmall, .editInputMedium { width: 100%; }
+}

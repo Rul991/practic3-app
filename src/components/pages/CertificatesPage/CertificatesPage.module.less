@@ -1,0 +1,99 @@
+// src/components/pages/CertificatesPage/CertificatesPage.module.less
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #eff2ff 0%, #d8eefb 100%);
+    padding: 40px;
+}
+
+.card {
+    width: 800px;
+    max-width: 100%;
+    background: transparent;
+    box-shadow: none;
+}
+
+.viewMode {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.infoBlock {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: white;
+}
+
+.infoRow {
+    display: flex;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.label {
+    width: 100px;
+    font-weight: 700;
+    color: #667eea;
+    flex-shrink: 0;
+    font-size: 13px;
+}
+
+.value {
+    flex: 1;
+    color: #333;
+    font-weight: 400;
+    word-break: break-word;
+}
+
+.certName {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.certOrganization {
+    font-size: 12px;
+    color: #666;
+}
+
+.siteLink {
+    font-size: 12px;
+    color: #667eea;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.emptyMessage {
+    text-align: center;
+    padding: 30px;
+    color: #999;
+    font-size: 14px;
+}
+
+// Адаптивность
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
+    .infoRow {
+        flex-direction: column;
+    }
+    
+    .label {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+}

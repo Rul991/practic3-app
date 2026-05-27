@@ -1,0 +1,50 @@
+.container {
+    margin-bottom: 20px;
+    width: 100%;
+    
+    div {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 0.3px;
+    }
+    
+    input {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 15px;
+        font-family: inherit;
+        background: white;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+        
+        &::placeholder {
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        &:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        &:hover {
+            border-color: #bbb;
+        }
+        
+        
+        // Стили для ошибки (если добавите в будущем)
+        &.error {
+            border-color: #f56565;
+            
+            &:focus {
+                box-shadow: 0 0 0 3px rgba(245, 101, 101, 0.1);
+            }
+        }
+    }
+}

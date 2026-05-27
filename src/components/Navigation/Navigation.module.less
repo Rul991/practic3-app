@@ -1,0 +1,70 @@
+// src/components/Navigation/Navigation.module.less
+.sidebar {
+    width: 280px;
+    height: 100vh;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 40px 20px;
+    overflow-y: auto;
+}
+
+.header {
+    text-align: left;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.title {
+    color: #444756;
+    font-size: 20px;
+    margin: 0;
+}
+
+.menu {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.buttonWrapper {
+    width: 100%;
+}
+
+.menu button {
+    width: 100% !important;
+    text-align: left !important;
+    justify-content: flex-start !important;
+    background: #6b6f7e !important;
+    margin-top: 0 !important;
+}
+
+.menu button:hover {
+    background: #4e4e4e !important;
+}
+
+.activeWrapper button {
+    background: #393939 !important;
+}
+
+
+.footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #f0f0f0;
+}
+
+.footer button {
+    background: #e74c3c !important;
+    margin-top: 0 !important;
+}
+
+.footer button:hover {
+    background: #c0392b !important;
+}
