@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom"
 import styles from './LoginPage.module.less'
 import Button from "../../inputs/Button"
 import TextInput from "../../inputs/TextInput"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import type { ZodString } from "zod"
 import { loginSchema, passwordSchema } from "../../../schemas/string"
 import { LOGIN_LENGTH_MESSAGE, PASSWORD_LENGTH_MESSAGE, WRONG_PASSWORD_MESSAGE } from "../../../consts/messages"
@@ -71,31 +71,17 @@ const LoginPage = () => {
         return errors
     }
 
-    useEffect(() => {
-        (async () => {
-            const errors: string[] = checkFields()
-
-            console.log(errors)
-            if (errors.length > 0) {
-                setErrors(errors)
-            }
-        })()
-    }, [login, password])
-
     const handleLogin = async () => {
-        if (!errors.length) {
-            const result = await checkUser()
-            setErrors(
-                [
-                    ...errors,
-                    ...result
-                ]
-            )
+        const errors: string[] = checkFields()
 
-            if(result.length) return
+        if (!errors.length) {
+            errors.push(...await checkUser())
         }
 
-        if (errors.length) return
+        if (errors.length) {
+            setErrors(errors)
+            return
+        }
         navigate('/info')
     }
 
