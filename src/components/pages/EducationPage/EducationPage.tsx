@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import styles from './EducationPage.module.less'
 import PageHeader from '../../../components/inputs/PageHeader'
 import Section from '../../../components/inputs/Section'
@@ -6,49 +5,40 @@ import EditCard from '../../../components/inputs/EditCard'
 import EditField from '../../../components/inputs/EditField'
 import ActionButtons from '../../../components/inputs/ActionButtons'
 import type { CoursesViewData } from '../../../types/info'
+import { useEditing } from '../../../utils/hooks/hooks'
 
 const EducationPage = () => {
-    const [isEditing, setIsEditing] = useState(false)
-
-    const [viewData, setViewData] = useState<CoursesViewData>({
-        selfEducation: [
-            { id: 1, year: '2018 / 19г.', fileUrl: '/files/plan1.pdf', fileName: 'Программа / план по самообразованию', fileSize: '182.86 Кб', linkUrl: '' },
-            { id: 2, year: '2019 / 20г.', fileUrl: '', fileName: '', fileSize: '', linkUrl: 'https://info.netfolio.ru/' },
-            { id: 3, year: '2020 / 21г.', fileUrl: '', fileName: '', fileSize: '', linkUrl: 'https://info.netfolio.ru/' }
-        ],
-        qualifications: [
-            { id: 1, startDate: '09/01/2019', endDate: '03/04/2019', name: 'Демонстративное название программы повышения квалификации', institution: 'Демонстративное учреждение повышения квалификации', hours: 20, studyFormat: 'заочная', fileUrl: '/files/cert1.pdf', fileName: 'Копия документа', fileSize: '182.86 Кб', linkUrl: '' },
-            { id: 2, startDate: '05/04/2019', endDate: '07/04/2019', name: 'Демонстрационная программа', institution: 'Демонстрационное учреждения повышения квалификации', hours: 20, studyFormat: 'заочная', fileUrl: '/files/cert2.pdf', fileName: 'Копия документа', fileSize: '182.86 Кб', linkUrl: '' },
-            { id: 3, startDate: '10/04/2020', endDate: '23/05/2020', name: 'Демонстративное название программы повышения квалификации 2', institution: 'Демонстративное учреждение повышения квалификации', hours: 100, studyFormat: 'заочная', fileUrl: '/files/cert3.pdf', fileName: 'Копия документа', fileSize: '182.86 Кб', linkUrl: 'https://info.netfolio.ru/' },
-            { id: 4, startDate: '02/03/2021', endDate: '11/05/2021', name: 'Демонстративное название программы повышения квалификации 3', institution: 'Демонстративное учреждение повышения квалификации', hours: 25, studyFormat: 'очная', fileUrl: '', fileName: '', fileSize: '', linkUrl: 'https://info.netfolio.ru/' }
-        ],
-        retraining: [
-            { id: 1, startDate: '20/02/2018', endDate: '06/03/2019', name: 'Демонстрационное название программы переподготовки', institution: 'Демонстрационное учреждение профессиональной переподготовки', hours: 50, studyFormat: 'очная', fileUrl: '/files/retrain1.pdf', fileName: 'Копия документа', fileSize: '182.86 Кб', linkUrl: 'https://info.netfolio.ru/' }
-        ],
-        degrees: [
-            { id: 1, date: '05/03/2021', degree: 'кандидат исторических наук', thesisTopic: 'Демонстрационная тема научной работы', fileUrl: '/files/degree1.pdf', fileName: 'Копия документа', fileSize: '182.86 Кб', linkUrl: 'https://info.netfolio.ru/' }
-        ]
+    const {
+        handleEdit,
+        handleSave,
+        handleCancel,
+        isEditing,
+        editData,
+        setEditData,
+    } = useEditing<CoursesViewData>({
+        data: {
+            selfEducation: [
+                { id: 1, year: '2018 / 19г.', fileUrl: '/files/plan1.pdf', fileName: 'Программа / план по самообразованию', fileSize: '182.86 Кб', linkUrl: '' },
+                { id: 2, year: '2019 / 20г.', fileUrl: '', fileName: '', fileSize: '', linkUrl: 'https://info.netfolio.ru/' },
+                { id: 3, year: '2020 / 21г.', fileUrl: '', fileName: '', fileSize: '', linkUrl: 'https://info.netfolio.ru/' }
+            ],
+            qualifications: [
+                { id: 1, startDate: '09/01/2019', endDate: '03/04/2019', name: 'Демонстративное название программы повышения квалификации', institution: 'Демонстративное учреждение повышения квалификации', hours: 20, studyFormat: 'заочная', fileUrl: '/files/cert1.pdf', fileName: 'Копия документа', fileSize: '182.86 Кб', linkUrl: '' },
+                { id: 2, startDate: '05/04/2019', endDate: '07/04/2019', name: 'Демонстрационная программа', institution: 'Демонстрационное учреждения повышения квалификации', hours: 20, studyFormat: 'заочная', fileUrl: '/files/cert2.pdf', fileName: 'Копия документа', fileSize: '182.86 Кб', linkUrl: '' },
+                { id: 3, startDate: '10/04/2020', endDate: '23/05/2020', name: 'Демонстративное название программы повышения квалификации 2', institution: 'Демонстративное учреждение повышения квалификации', hours: 100, studyFormat: 'заочная', fileUrl: '/files/cert3.pdf', fileName: 'Копия документа', fileSize: '182.86 Кб', linkUrl: 'https://info.netfolio.ru/' },
+                { id: 4, startDate: '02/03/2021', endDate: '11/05/2021', name: 'Демонстративное название программы повышения квалификации 3', institution: 'Демонстративное учреждение повышения квалификации', hours: 25, studyFormat: 'очная', fileUrl: '', fileName: '', fileSize: '', linkUrl: 'https://info.netfolio.ru/' }
+            ],
+            retraining: [
+                { id: 1, startDate: '20/02/2018', endDate: '06/03/2019', name: 'Демонстрационное название программы переподготовки', institution: 'Демонстрационное учреждение профессиональной переподготовки', hours: 50, studyFormat: 'очная', fileUrl: '/files/retrain1.pdf', fileName: 'Копия документа', fileSize: '182.86 Кб', linkUrl: 'https://info.netfolio.ru/' }
+            ],
+            degrees: [
+                { id: 1, date: '05/03/2021', degree: 'кандидат исторических наук', thesisTopic: 'Демонстрационная тема научной работы', fileUrl: '/files/degree1.pdf', fileName: 'Копия документа', fileSize: '182.86 Кб', linkUrl: 'https://info.netfolio.ru/' }
+            ]
+        }
     })
 
-    const [editData, setEditData] = useState(viewData)
-
-    const handleEdit = () => {
-        setEditData(viewData)
-        setIsEditing(true)
-    }
-
-    const handleSave = () => {
-        setViewData(editData)
-        setIsEditing(false)
-    }
-
-    const handleCancel = () => {
-        setEditData(viewData)
-        setIsEditing(false)
-    }
-
     const addItem = (section: keyof typeof editData, template: any) => {
-        const newId = Date.now().toString()
+        const newId = Date.now()
         setEditData(prev => ({
             ...prev,
             [section]: [...prev[section], { id: newId, ...template }]
@@ -85,7 +75,7 @@ const EducationPage = () => {
         if (!item.linkUrl) return null
         return (
             <a href={item.linkUrl} className={styles.siteLink} target="_blank" rel="noopener noreferrer">
-                Ссылка на ресурс в Internet
+                Ссылка на ресурс
             </a>
         )
     }

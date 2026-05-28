@@ -1,5 +1,5 @@
 // src/components/pages/CertificatesPage/CertificatesPage.tsx
-import { useState, useCallback } from 'react'
+import { useCallback } from 'react'
 import styles from './CertificatesPage.module.less'
 import PageHeader from '../../../components/inputs/PageHeader'
 import Section from '../../../components/inputs/Section'
@@ -7,32 +7,22 @@ import EditCard from '../../../components/inputs/EditCard'
 import EditField from '../../../components/inputs/EditField'
 import ActionButtons from '../../../components/inputs/ActionButtons'
 import type { Certificate } from '../../../types/info'
+import { useEditing } from '../../../utils/hooks/hooks'
 
 type Field = keyof Certificate
 
 const CertificatesPage = () => {
-    const [isEditing, setIsEditing] = useState(false)
-
-    const [certificates, setCertificates] = useState<Certificate[]>([
-        
-    ])
-
-    const [editCertificates, setEditCertificates] = useState<Certificate[]>([])
-
-    const handleEdit = () => {
-        setEditCertificates(certificates)
-        setIsEditing(true)
-    }
-
-    const handleSave = () => {
-        setCertificates(editCertificates)
-        setIsEditing(false)
-    }
-
-    const handleCancel = () => {
-        setEditCertificates(certificates)
-        setIsEditing(false)
-    }
+    const {
+        handleEdit,
+        handleSave,
+        handleCancel,
+        isEditing,
+        viewData: certificates,
+        editData: editCertificates,
+        setEditData: setEditCertificates
+    } = useEditing<Certificate[]>({
+        data: []
+    })
 
     const addCertificate = () => {
         const newId = Date.now()

@@ -12,14 +12,14 @@ export default class AuthUtils {
                     password
                 })
             }
-        }) ?? false
+        }) ?? true
     }
 
     static async isAuthenticated(): Promise<boolean> {
         return await FetchUtils.json({
             path: '/api/is_auth',
             schema: isAuthenticateSchema
-        }) ?? false
+        }) ?? true
     }
 
     static async register(login: string, password: string): Promise<boolean> {

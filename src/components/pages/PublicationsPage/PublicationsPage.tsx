@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import styles from './PublicationsPage.module.less'
 import PageHeader from '../../../components/inputs/PageHeader'
 import Section from '../../../components/inputs/Section'
@@ -6,31 +5,22 @@ import EditCard from '../../../components/inputs/EditCard'
 import EditField from '../../../components/inputs/EditField'
 import ActionButtons from '../../../components/inputs/ActionButtons'
 import type { WorksViewData } from '../../../types/info'
+import { useEditing } from '../../../utils/hooks/hooks'
 
 const PublicationsPage = () => {
-    const [isEditing, setIsEditing] = useState(false)
-
-    const [viewData, setViewData] = useState<WorksViewData>({
-        mediaPublications: [],
-        authorWorks: []
+    const {
+        handleEdit,
+        handleSave,
+        handleCancel,
+        isEditing,
+        editData,
+        setEditData,
+    } = useEditing<WorksViewData>({
+        data: {
+            authorWorks: [],
+            mediaPublications: []
+        }
     })
-
-    const [editData, setEditData] = useState(viewData)
-
-    const handleEdit = () => {
-        setEditData(viewData)
-        setIsEditing(true)
-    }
-
-    const handleSave = () => {
-        setViewData(editData)
-        setIsEditing(false)
-    }
-
-    const handleCancel = () => {
-        setEditData(viewData)
-        setIsEditing(false)
-    }
 
     const addMediaPublication = () => {
         const newId = Date.now()

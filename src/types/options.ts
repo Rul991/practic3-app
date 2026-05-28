@@ -7,3 +7,7 @@ export type JsonFetchOptions<T> = {
         body: RequestInit['body'] & {}
     }
 }
+
+export type EditingHookOptions<T> = {
+    data: T
+}

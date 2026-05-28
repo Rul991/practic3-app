@@ -19,7 +19,6 @@ const App = () => {
                 <Route path="/register" element={<RegisterPage />} />
 
                 <Route path="/" element={<Layout />}>
-                    <Route index element={<InfoPage />} />
                     <Route path="info" element={<InfoPage />} />
                     <Route path="certificates" element={<CertificatesPage />} />
                     <Route path="publications" element={<PublicationsPage />} />
